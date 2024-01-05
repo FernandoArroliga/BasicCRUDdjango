@@ -1,0 +1,15 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}Editar Tarea{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form }}
+    <button>Editar tarea</button>
+
+</form>
+
+{% endblock %}

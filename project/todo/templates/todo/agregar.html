@@ -1,0 +1,15 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}Agregar Tareas{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form }}
+    <button>Agregar tarea</button>
+
+</form>
+
+{% endblock %}
