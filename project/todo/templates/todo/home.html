@@ -51,6 +51,23 @@
             </tbody>
 
         </table>
+
+        <!-- Pagination Links -->
+        <div class="d-flex justify-content-center">
+            <ul class="pagination">
+                {% if tareas.has_previous %}
+                    <li class="page-item"><a class="page-link bg-dark " style="color: white;" href="?page=1">&laquo;&laquo;</a></li>
+                    <li class="page-item"><a class="page-link bg-dark" style="color: white;" href="?page={{ tareas.previous_page_number }}">{{ tareas.previous_page_number }}</a></li>
+                {% endif %}
+                <li class="page-item active"><span style="color: white;" class="page-link bg-dark">{{ tareas.number }} <span class="sr-only"></span></span></li>
+                {% if tareas.has_next %}
+                    <li class="page-item"><a class="page-link bg-dark" style="color: white;" href="?page={{ tareas.next_page_number }}">{{ tareas.next_page_number }}</a></li>
+                    <li class="page-item"><a class="page-link bg-dark" style="color: white;" href="?page={{ tareas.paginator.num_pages }}">&raquo;&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- End Pagination Links -->
+
     </div>
 </main>
 <!-- End of Table of Tareas -->
