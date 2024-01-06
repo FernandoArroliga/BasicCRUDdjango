@@ -4,14 +4,56 @@
 
 {% block content %}
     
-<h1>Lista de Tareas</h1>
+<!-- Header Section -->
+<header>
 
-<ul>
-{% for tarea in tareas %}
-    <li>{{ tarea }}</li>
-    <button><a href="{% url 'eliminar' tarea.id %}">Eliminar</a></button>
-    <button><a href="{% url 'editar' tarea.id %}">Editar</a></button>
-{% endfor %}
-</ul>
+    <div class="container text-center bg-white py-5">
+        <h1>Lista de Tareas</h1>
+        <p>Agrega tu tarea aquí.</p>
+    </div>
+
+</header>
+<!-- End of Header Section -->
+
+<!-- Table of Tareas -->
+<main>
+    <div class="container">
+        <table class="table table-dark table-striped table-hover">
+
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarea</th>
+                    <th scope="col">Acción</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for tarea in tareas %}
+                <tr>
+                    <th scope="row">{{ tarea.id }}</th>
+                    <td>{{ tarea }}</td>
+                    <td>
+                        <button type="button" class="btn btn-light">
+                            <a href="{% url 'eliminar' tarea.id %}" 
+                            style="text-decoration: none; color: black;">Eliminar</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-light">
+                            <a href="{% url 'editar' tarea.id %}" 
+                            style="text-decoration: none; color: black;">Editar</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</main>
+<!-- End of Table of Tareas -->
 
 {% endblock %}
+

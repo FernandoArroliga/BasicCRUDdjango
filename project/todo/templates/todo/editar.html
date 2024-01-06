@@ -4,12 +4,22 @@
 
 {% block content %}
 
-<form method="POST">
+<!-- Section for Editing Tarea -->
+<section>
 
-    {% csrf_token %}
-    {{ form }}
-    <button>Editar tarea</button>
-
-</form>
+    <div class="container py-5 text-center">
+    
+        <form method="POST">
+    
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark">Editar Tarea</button>
+        
+        </form>
+    
+    </div>
+    
+    </section>
+    <!-- End of Section for Editing Tarea -->
 
 {% endblock %}
